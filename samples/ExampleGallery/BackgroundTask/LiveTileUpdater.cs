@@ -4,6 +4,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+
 using Windows.ApplicationModel.Background;
 using Windows.Foundation;
 using Windows.Storage;

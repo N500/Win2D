@@ -6,7 +6,9 @@ using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -30,7 +32,7 @@ namespace ExampleGallery
 
         public double GlowAmount
         {
-            get  { return (double)GetValue(GlowAmountProperty); }
+            get { return (double)GetValue(GlowAmountProperty); }
             set { SetValue(GlowAmountProperty, value); }
         }
 
@@ -159,13 +161,13 @@ namespace ExampleGallery
             size.Width = size.Width - ExpandAmount;
             size.Height = size.Height - ExpandAmount;
 
-            var offset = (float)(ExpandAmount / 2);           
+            var offset = (float)(ExpandAmount / 2);
 
             using (var textLayout = CreateTextLayout(ds, size))
             using (var textCommandList = new CanvasCommandList(ds))
             {
                 using (var textDs = textCommandList.CreateDrawingSession())
-                {                     
+                {
                     textDs.DrawTextLayout(textLayout, 0, 0, GlowColor);
                 }
 

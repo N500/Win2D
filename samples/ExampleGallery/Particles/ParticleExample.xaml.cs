@@ -5,11 +5,13 @@
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Numerics;
 using System.Threading.Tasks;
+
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -153,7 +155,7 @@ namespace ExampleGallery
             }
         }
 
-        
+
         void Draw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
         {
             var ds = args.DrawingSession;

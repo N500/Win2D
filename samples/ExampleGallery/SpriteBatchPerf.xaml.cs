@@ -2,10 +2,10 @@
 //
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
-using ExampleGallery.Direct3DInterop.SpriteBatchPerformance;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +14,10 @@ using System.Linq;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
+
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.UI;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -78,7 +78,7 @@ namespace ExampleGallery
 
             Scenarios.Add(new Scenario(Scenario.DrawMethod.DrawImage, CanvasSpriteSortMode.None));
 
-            if (spriteBatchSupported) 
+            if (spriteBatchSupported)
             {
                 Scenarios.Add(new Scenario(Scenario.DrawMethod.Win2DSpriteBatch, CanvasSpriteSortMode.None));
                 Scenarios.Add(new Scenario(Scenario.DrawMethod.Win2DSpriteBatch, CanvasSpriteSortMode.Bitmap));
@@ -266,10 +266,10 @@ namespace ExampleGallery
 
                     switch (Method)
                     {
-                        case DrawMethod.Win2DSpriteBatch:    n = "C# Win2D"; break;
+                        case DrawMethod.Win2DSpriteBatch: n = "C# Win2D"; break;
                         case DrawMethod.CppWin2DSpriteBatch: n = "C++ Win2D"; break;
-                        case DrawMethod.D2DSpriteBatch:      n = "C++ D2D"; break;
-                        case DrawMethod.DrawImage:           n = "C# DrawImage"; break;
+                        case DrawMethod.D2DSpriteBatch: n = "C++ D2D"; break;
+                        case DrawMethod.DrawImage: n = "C# DrawImage"; break;
                         default: throw new Exception();
                     }
 
@@ -289,7 +289,7 @@ namespace ExampleGallery
 
                     return string.Format("CPU/GPU avg: {0:0.00}ms/{1:0.00}ms",
                         Data.Values.Select(e => e.CpuTimeInMs).Average(),
-                        Data.Values.Where(e => e.GpuTimeInMs >= 0.0).Select(e => e.GpuTimeInMs).Average());                        
+                        Data.Values.Where(e => e.GpuTimeInMs >= 0.0).Select(e => e.GpuTimeInMs).Average());
                 }
             }
 
@@ -481,7 +481,7 @@ namespace ExampleGallery
         {
             private Scenario.DrawMethod method;
 
-            List<ScenarioData.DrawInfo> sprites = new List<ScenarioData.DrawInfo>();         
+            List<ScenarioData.DrawInfo> sprites = new List<ScenarioData.DrawInfo>();
 
             public Win2DScenarioRunner(Scenario.DrawMethod method)
             {

@@ -4,10 +4,7 @@
 
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+
 using Windows.UI;
 
 #if WINDOWS_UWP
@@ -288,7 +285,7 @@ namespace test.managed
 
         static CanvasAlphaMode FirstSupportedAlphaMode(DirectXPixelFormat format)
         {
-            return formatFlags.ContainsKey(format) ? SupportedAlphaModes(format).First() 
+            return formatFlags.ContainsKey(format) ? SupportedAlphaModes(format).First()
                                                    : CanvasAlphaMode.Premultiplied;
         }
     }

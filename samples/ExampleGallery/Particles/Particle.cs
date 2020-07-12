@@ -45,7 +45,7 @@ namespace ExampleGallery
             this.Lifetime = lifetime;
             this.Scale = scale;
             this.RotationSpeed = rotationSpeed;
-            
+
             // Reset TimeSinceStart - we have to do this because particles will be reused.
             this.TimeSinceStart = 0.0f;
 

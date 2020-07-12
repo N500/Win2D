@@ -8,12 +8,14 @@ using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
+
 using Windows.Foundation;
 using Windows.Storage.Streams;
 using Windows.UI;
@@ -56,13 +58,13 @@ namespace ExampleGallery
             CanvasVirtualImageSource,
         }
 
-        public SourceMode       CurrentSource       { get; set; }
+        public SourceMode CurrentSource { get; set; }
         public IntermediateMode CurrentIntermediate { get; set; }
-        public OutputMode       CurrentOutput       { get; set; }
+        public OutputMode CurrentOutput { get; set; }
 
-        public List<SourceMode>       SourceModeList       { get { return Utils.GetEnumAsList<SourceMode>();       } }
+        public List<SourceMode> SourceModeList { get { return Utils.GetEnumAsList<SourceMode>(); } }
         public List<IntermediateMode> IntermediateModeList { get { return Utils.GetEnumAsList<IntermediateMode>(); } }
-        public List<OutputMode>       OutputModeList       { get { return Utils.GetEnumAsList<OutputMode>();       } }
+        public List<OutputMode> OutputModeList { get { return Utils.GetEnumAsList<OutputMode>(); } }
 
         const float testSize = 128;
         const float testOffset = 20;
@@ -81,7 +83,7 @@ namespace ExampleGallery
 
             public readonly CanvasBitmap DefaultDpiBitmap;
             public readonly CanvasBitmap HighDpiBitmap;
-            public readonly CanvasBitmap LowDpiBitmap;        
+            public readonly CanvasBitmap LowDpiBitmap;
             public readonly CanvasVirtualBitmap VirtualBitmap;
 
             public readonly CanvasRenderTarget AutoDpiRenderTarget;
@@ -117,7 +119,7 @@ namespace ExampleGallery
 
 
             static async public Task<PerDeviceResources> Create(ICanvasResourceCreatorWithDpi resourceCreator)
-            {                
+            {
                 var virtualBitmap = await CreateTestVirtualBitmap(resourceCreator);
                 return new PerDeviceResources(resourceCreator, virtualBitmap);
             }
@@ -140,7 +142,7 @@ namespace ExampleGallery
                 return message;
             }
         }
-        
+
 
         PerDeviceResources mainDeviceResources;
         PerDeviceResources animatedDeviceResources;
@@ -256,12 +258,12 @@ namespace ExampleGallery
             }
 
             // Show or hide overlay controls to fit the current mode.
-            imageControl.Visibility        = (CurrentOutput == OutputMode.CanvasImageSource)        ? Visibility.Visible : Visibility.Collapsed;
-            swapChainPanel.Visibility      = (CurrentOutput == OutputMode.CanvasSwapChain)          ? Visibility.Visible : Visibility.Collapsed;
-            virtualControl.Visibility      = (CurrentOutput == OutputMode.CanvasVirtualControl)     ? Visibility.Visible : Visibility.Collapsed;
+            imageControl.Visibility = (CurrentOutput == OutputMode.CanvasImageSource) ? Visibility.Visible : Visibility.Collapsed;
+            swapChainPanel.Visibility = (CurrentOutput == OutputMode.CanvasSwapChain) ? Visibility.Visible : Visibility.Collapsed;
+            virtualControl.Visibility = (CurrentOutput == OutputMode.CanvasVirtualControl) ? Visibility.Visible : Visibility.Collapsed;
             virtualImageControl.Visibility = (CurrentOutput == OutputMode.CanvasVirtualImageSource) ? Visibility.Visible : Visibility.Collapsed;
-            animatedControl.Visibility     = (CurrentOutput == OutputMode.CanvasAnimatedControl)    ? Visibility.Visible : Visibility.Collapsed;
-            animatedControl.Paused         = (CurrentOutput != OutputMode.CanvasAnimatedControl);
+            animatedControl.Visibility = (CurrentOutput == OutputMode.CanvasAnimatedControl) ? Visibility.Visible : Visibility.Collapsed;
+            animatedControl.Paused = (CurrentOutput != OutputMode.CanvasAnimatedControl);
 
             // Update the info text.
             DispatchedHandler updateText = () => textBlock.Text = mainDeviceResources.GetFinalMessage();
@@ -452,9 +454,9 @@ namespace ExampleGallery
             switch (CurrentSource)
             {
                 case SourceMode.DefaultDpiBitmap: bitmap = resources.DefaultDpiBitmap; break;
-                case SourceMode.HighDpiBitmap:    bitmap = resources.HighDpiBitmap;    break;
-                case SourceMode.LowDpiBitmap:     bitmap = resources.LowDpiBitmap;     break;
-                default:                          bitmap = null;                       break;
+                case SourceMode.HighDpiBitmap: bitmap = resources.HighDpiBitmap; break;
+                case SourceMode.LowDpiBitmap: bitmap = resources.LowDpiBitmap; break;
+                default: bitmap = null; break;
             }
 
             if (bitmap != null)
@@ -472,11 +474,11 @@ namespace ExampleGallery
             switch (mode)
             {
                 case IntermediateMode.HighDpiRenderTarget: return resources.HighDpiRenderTarget;
-                case IntermediateMode.LowDpiRenderTarget:  return resources.LowDpiRenderTarget;
-                default:                                   return resources.AutoDpiRenderTarget;
+                case IntermediateMode.LowDpiRenderTarget: return resources.LowDpiRenderTarget;
+                default: return resources.AutoDpiRenderTarget;
             }
         }
-        
+
 
         static CanvasBitmap CreateTestBitmap(ICanvasResourceCreatorWithDpi resourceCreator, float dpi)
         {

@@ -5,14 +5,15 @@
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Linq;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 
 namespace ExampleGallery
 {
@@ -76,7 +77,7 @@ namespace ExampleGallery
                 "In this demo, each time a region is updated, it is cleared to a different background color.  " +
                 "This is to make it possible to see which regions get redrawn.",
                 format, 500, 0);
-            
+
             var youMadeIt = new CanvasTextLayout(sender,
                 "You made it to the end!", endFormat, 1000, 0);
 
@@ -88,7 +89,7 @@ namespace ExampleGallery
                 var top = ((int)(region.Y / gridSize) - 1) * gridSize;
                 var right = ((int)((region.X + region.Width) / gridSize) + 1) * gridSize;
                 var bottom = ((int)((region.Y + region.Height) / gridSize) + 1) * gridSize;
-                    
+
                 for (var x = left; x <= right; x += gridSize)
                 {
                     for (var y = top; y <= bottom; y += gridSize)

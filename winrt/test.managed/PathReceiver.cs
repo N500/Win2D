@@ -2,12 +2,10 @@
 //
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Geometry;
 
 #if WINDOWS_UWP
-using System.Numerics;
 #else
 using Microsoft.Graphics.Canvas.Numerics;
 #endif

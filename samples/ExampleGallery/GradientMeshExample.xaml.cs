@@ -5,10 +5,12 @@
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -23,7 +25,7 @@ namespace ExampleGallery
         float controlPointRadiusSquared;
 
         CanvasGradientMesh gradientMesh;
-        
+
         List<Vector2[]> patchPoints;
 
         struct SelectedPatchInfo
@@ -32,7 +34,7 @@ namespace ExampleGallery
             public int PointIndex;
         }
         SelectedPatchInfo pickedUp;
-        
+
         public class NamedColor
         {
             public NamedColor(string n, Color c)
@@ -59,7 +61,7 @@ namespace ExampleGallery
             new NamedColor("Red", Colors.Red),
             new NamedColor("White", Colors.White),
         };
-           
+
         public List<NamedColor> AllColors { get { return namedColors; } }
         public NamedColor Color00 { get; set; }
         public NamedColor Color03 { get; set; }
@@ -95,7 +97,7 @@ namespace ExampleGallery
 
             CanvasGradientMeshPatch[] patchArray = new CanvasGradientMeshPatch[patchPoints.Count];
 
-            for (int i=0; i<patchPoints.Count; ++i)
+            for (int i = 0; i < patchPoints.Count; ++i)
             {
                 CanvasGradientMeshPatch patch;
 
@@ -216,14 +218,14 @@ namespace ExampleGallery
             pathBuilder.EndFigure(CanvasFigureLoop.Open);
 
             CanvasGeometry geometry = CanvasGeometry.CreatePath(pathBuilder);
-            drawingSession.DrawGeometry(geometry, Colors.White, 5.0f);            
+            drawingSession.DrawGeometry(geometry, Colors.White, 5.0f);
         }
 
         void DrawControlLines(CanvasDrawingSession drawingSession)
         {
             CanvasGradientMeshPatch[] patches = gradientMesh.Patches;
 
-            for (int i=0; i<patchPoints.Count; ++i)
+            for (int i = 0; i < patchPoints.Count; ++i)
             {
                 var pointArray = patchPoints[i];
                 foreach (Vector2 point in pointArray)
@@ -310,7 +312,7 @@ namespace ExampleGallery
             patchPoints.Clear();
             gradientMesh = null;
             canvasControl.Invalidate();
-        }        
+        }
 
         private void SettingsCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -338,9 +340,9 @@ namespace ExampleGallery
         private void canvasControl_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             e.Handled = true;
-            for (int i = patchPoints.Count-1; i >= 0; i--) // Preference toward the 'top' patches
+            for (int i = patchPoints.Count - 1; i >= 0; i--) // Preference toward the 'top' patches
             {
-                for (int j=0; j<patchPoints[i].Length; j++)
+                for (int j = 0; j < patchPoints[i].Length; j++)
                 {
                     Vector2 p = e.GetCurrentPoint(canvasControl).Position.ToVector2();
                     float dist = Vector2.DistanceSquared(p, patchPoints[i][j]);

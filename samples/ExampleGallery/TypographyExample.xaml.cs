@@ -7,10 +7,12 @@ using Microsoft.Graphics.Canvas.Brushes;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -19,7 +21,7 @@ using Windows.UI.Xaml.Controls;
 namespace ExampleGallery
 {
     public sealed partial class TypographyExample : UserControl, INotifyPropertyChanged
-    {           
+    {
         CanvasTextLayout textLayout;
 
         bool needsResourceRecreation;
@@ -27,7 +29,7 @@ namespace ExampleGallery
 
         bool typographyChanged;
         bool needRefreshTypographyList;
-        
+
         static CanvasDrawingSession currentDrawingSession;
 
         string testString;
@@ -122,7 +124,7 @@ namespace ExampleGallery
                     for (int i = 0; i < glyphs.Length; i++)
                     {
                         int glyphTextPosition = 0;
-                        for (int j=0; j<clusterMapIndices.Length; j++)
+                        for (int j = 0; j < clusterMapIndices.Length; j++)
                         {
                             if (clusterMapIndices[j] == i)
                             {
@@ -230,7 +232,7 @@ namespace ExampleGallery
                     // using the feature name.
                     //
                     uint id = (uint)(name);
-                    stringName = 
+                    stringName =
                         ((char)((id >> 24) & 0xFF)).ToString() +
                         ((char)((id >> 16) & 0xFF)).ToString() +
                         ((char)((id >> 8) & 0xFF)).ToString() +
@@ -238,7 +240,7 @@ namespace ExampleGallery
                 }
             }
 
-            public CanvasTypographyFeatureName Name { get {return name; } }
+            public CanvasTypographyFeatureName Name { get { return name; } }
 
             public override string ToString()
             {
@@ -258,7 +260,7 @@ namespace ExampleGallery
             {
                 return base.GetHashCode();
             }
-            
+
             bool IsNamedFeature(CanvasTypographyFeatureName name)
             {
                 //
@@ -284,7 +286,7 @@ namespace ExampleGallery
         {
             DataContext = this;
 
-            this.InitializeComponent();    
+            this.InitializeComponent();
 
             TypographyOptions = new List<TypographyFeatureInfo>();
 
@@ -308,10 +310,10 @@ namespace ExampleGallery
             float canvasWidth = (float)targetSize.Width;
             float canvasHeight = (float)targetSize.Height;
 
-            if (textLayout != null) 
+            if (textLayout != null)
                 textLayout.Dispose();
             textLayout = CreateTextLayout(resourceCreator, canvasWidth, canvasHeight);
-            
+
             typographyChanged = true;
             needRefreshTypographyList = true;
 
@@ -322,7 +324,7 @@ namespace ExampleGallery
         private CanvasTextLayout CreateTextLayout(ICanvasResourceCreator resourceCreator, float canvasWidth, float canvasHeight)
         {
             float sizeDim = Math.Min(canvasWidth, canvasHeight);
-            
+
             float fontSize;
             if (!ThumbnailGenerator.IsDrawingThumbnail)
             {

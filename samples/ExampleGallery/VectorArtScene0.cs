@@ -2,8 +2,8 @@
 //
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
-using Microsoft.Graphics.Canvas;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.UI;
 

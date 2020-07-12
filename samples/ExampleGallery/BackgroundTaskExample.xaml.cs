@@ -3,8 +3,10 @@
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
 using ExampleGallery.BackgroundTask;
+
 using System;
 using System.Linq;
+
 using Windows.ApplicationModel.Background;
 using Windows.UI.Core;
 using Windows.UI.Notifications;
@@ -60,7 +62,7 @@ namespace ExampleGallery
             {
                 ResultText.Text = "Tile has not been generated yet.";
                 ResultImages.ItemsSource = new object[0];
-            }            
+            }
         }
 
         void DispatchUpdateUI()

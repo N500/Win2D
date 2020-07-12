@@ -8,9 +8,11 @@ using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Numerics;
 using System.Threading.Tasks;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -56,13 +58,13 @@ namespace ExampleGallery
         {
             bitmap = await CanvasBitmap.LoadAsync(sender, "imageTiger.jpg");
 
-            redBrush   = CreateGradientBrush(sender, 255, 0, 0);
+            redBrush = CreateGradientBrush(sender, 255, 0, 0);
             greenBrush = CreateGradientBrush(sender, 0, 255, 0);
-            blueBrush  = CreateGradientBrush(sender, 0, 0, 255);
+            blueBrush = CreateGradientBrush(sender, 0, 0, 255);
 
-            brightnessEffect = new BrightnessEffect  { Source = bitmap };
-            saturationEffect = new SaturationEffect  { Source = brightnessEffect };
-            hueEffect        = new HueRotationEffect { Source = saturationEffect };
+            brightnessEffect = new BrightnessEffect { Source = bitmap };
+            saturationEffect = new SaturationEffect { Source = brightnessEffect };
+            hueEffect = new HueRotationEffect { Source = saturationEffect };
         }
 
 
@@ -81,9 +83,9 @@ namespace ExampleGallery
                 // Overlay a histogram for each color channel.
                 args.DrawingSession.Blend = CanvasBlend.Add;
 
-                DrawHistogram(args.DrawingSession, sender.Size, EffectChannelSelect.Red,   redBrush);
+                DrawHistogram(args.DrawingSession, sender.Size, EffectChannelSelect.Red, redBrush);
                 DrawHistogram(args.DrawingSession, sender.Size, EffectChannelSelect.Green, greenBrush);
-                DrawHistogram(args.DrawingSession, sender.Size, EffectChannelSelect.Blue,  blueBrush);
+                DrawHistogram(args.DrawingSession, sender.Size, EffectChannelSelect.Blue, blueBrush);
             }
             else
             {

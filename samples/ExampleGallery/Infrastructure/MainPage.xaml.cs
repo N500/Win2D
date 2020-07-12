@@ -62,7 +62,7 @@ namespace ExampleGallery
             {
                 VisualStateManager.GoToState(this, newVisualState.ToString(), false);
                 currentVisualState = newVisualState;
-            }            
+            }
         }
     }
 }

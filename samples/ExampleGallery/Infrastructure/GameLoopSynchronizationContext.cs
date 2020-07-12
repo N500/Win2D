@@ -3,6 +3,7 @@
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -57,7 +58,7 @@ namespace ExampleGallery
     //      Debug.WriteLine("c");
     //
     // The output is "a", "b", "c", with both "a" and "b" written from the game loop thread.
-    
+
     class GameLoopSynchronizationContext : SynchronizationContext
     {
         ICanvasAnimatedControl control;
@@ -78,7 +79,7 @@ namespace ExampleGallery
                 // Re-register ourselves as the current synchronization context,
                 // to work around CLR issues where this state can sometimes get nulled out.
                 SynchronizationContext.SetSynchronizationContext(this);
-                    
+
                 callback(state);
             });
         }

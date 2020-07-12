@@ -4,8 +4,10 @@
 
 using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -94,7 +96,7 @@ namespace ExampleGallery
             var strokeWidth = (float)Math.Max(5, Math.Min(30, width / 50));
 
             ds.DrawLine(
-                col1Left, 
+                col1Left,
                 (row1Top + row1Bottom) / 2,
                 col1Right,
                 (row1Top + row1Bottom) / 2,

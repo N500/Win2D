@@ -3,20 +3,17 @@
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
 using Microsoft.Graphics.Canvas;
-using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
-using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Numerics;
-using Windows.ApplicationModel;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 
 namespace ExampleGallery
 {
@@ -50,7 +47,7 @@ namespace ExampleGallery
 
             public CanvasTextDirection Direction { get; set; }
 
-            public string Name { get { return Direction.ToString().Replace("Then", " then "); } }            
+            public string Name { get { return Direction.ToString().Replace("Then", " then "); } }
         }
 
         public List<DirectionInfo> Directions { get; set; }
@@ -136,7 +133,7 @@ namespace ExampleGallery
 
             var ds = args.DrawingSession;
 
-            Rect rect = new Rect(0,0, sender.ActualWidth, sender.ActualHeight);
+            Rect rect = new Rect(0, 0, sender.ActualWidth, sender.ActualHeight);
 
             if (ThumbnailGenerator.IsDrawingThumbnail)
             {

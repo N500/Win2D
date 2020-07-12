@@ -4,7 +4,9 @@
 
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Composition;
+
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.Graphics.DirectX;
 using Windows.UI;

@@ -8,6 +8,7 @@ using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,6 +16,7 @@ using System.Linq;
 using System.Numerics;
 using System.Reflection;
 using System.Threading.Tasks;
+
 using Windows.Foundation;
 using Windows.Graphics.Effects;
 using Windows.UI;
@@ -816,13 +818,13 @@ namespace ExampleGallery
             // Animation changes the light directions.
             animationFunction = elapsedTime =>
             {
-                distantDiffuseEffect.Azimuth = 
+                distantDiffuseEffect.Azimuth =
                 distantSpecularEffect.Azimuth = elapsedTime % ((float)Math.PI * 2);
 
                 distantDiffuseEffect.Elevation =
                 distantSpecularEffect.Elevation = (float)Math.PI / 4 + (float)Math.Sin(elapsedTime / 2) * (float)Math.PI / 8;
 
-                pointDiffuseEffect.LightPosition = 
+                pointDiffuseEffect.LightPosition =
                 pointSpecularEffect.LightPosition =
                 spotDiffuseEffect.LightPosition =
                 spotSpecularEffect.LightPosition = new Vector3((float)Math.Cos(elapsedTime), (float)Math.Sin(elapsedTime), 1) * 100;
@@ -902,7 +904,7 @@ namespace ExampleGallery
                         Size = new Vector2(turbulenceSize),
                         Tileable = true
                     },
-                    SourceRectangle= new Rect(0, 0, turbulenceSize, turbulenceSize)
+                    SourceRectangle = new Rect(0, 0, turbulenceSize, turbulenceSize)
                 },
                 SourceRectangle = new Rect((bitmapTiger.Size.ToVector2() * -0.5f).ToPoint(),
                                            (bitmapTiger.Size.ToVector2() * 1.5f).ToPoint())
@@ -1576,7 +1578,7 @@ namespace ExampleGallery
             return new CompositeEffect
             {
                 Sources = { softEdge, effect },
-                Mode = CanvasComposite.SourceIn 
+                Mode = CanvasComposite.SourceIn
             };
         }
 

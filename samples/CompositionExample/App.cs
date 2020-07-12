@@ -4,10 +4,12 @@
 
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.UI.Composition;
+
 using System;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
+
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
@@ -33,7 +35,7 @@ namespace CompositionExample
 
         CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         Random rnd = new Random();
-        
+
         public void Initialize(CoreApplicationView applicationView)
         {
             applicationView.Activated += applicationView_Activated;
@@ -87,7 +89,7 @@ namespace CompositionExample
 
             drawingSurfaceRenderer.Visual.Offset = new Vector3(-drawingSurfaceRenderer.Size.ToVector2(), 0);
             swapChainRenderer.Visual.Offset = new Vector3((float)window.Bounds.Width, (float)window.Bounds.Height, 0);
-            
+
             rootVisual = compositor.CreateContainerVisual();
             rootVisual.Children.InsertAtTop(swapChainRenderer.Visual);
             rootVisual.Children.InsertAtTop(drawingSurfaceRenderer.Visual);

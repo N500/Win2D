@@ -9,12 +9,14 @@ using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Numerics;
 using System.Reflection;
 using System.Threading.Tasks;
+
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.Graphics.DirectX;
@@ -79,9 +81,9 @@ namespace ExampleGallery
         ModeDescription currentMode;
         public ModeDescription CurrentMode
         {
-            get 
-            { 
-                return currentMode; 
+            get
+            {
+                return currentMode;
             }
             set
             {
@@ -205,7 +207,7 @@ namespace ExampleGallery
                     center.Y - sz.Height * sourceSizeScale * 0.5,
                     sz.Width * sourceSizeScale,
                     sz.Height * sourceSizeScale);
-                
+
                 UpdateSourceRectRT(sourceRect);
 
                 var format = new CanvasTextFormat()
@@ -234,7 +236,7 @@ namespace ExampleGallery
                 ds.DrawText("D2D DrawBitmap (emulated dest rect)", labelRect, Colors.White, format);
                 ds.FillRectangle(imageX, y, (float)sz.Width, (float)sz.Height, fillPattern);
                 ds.DrawImage(sourceBitmap, imageX, y, sourceRect);
-                
+
                 y += (float)sourceBitmap.Bounds.Height + 14;
                 labelRect.Y = y;
 
@@ -403,7 +405,7 @@ namespace ExampleGallery
             private CanvasRenderTarget CreateSourceImage(CanvasControl sender, CanvasAlphaMode alphaMode)
             {
                 var image = new CanvasRenderTarget(sender, 64, 64, sender.Dpi, DirectXPixelFormat.B8G8R8A8UIntNormalized, alphaMode);
-                
+
                 using (var ds = image.CreateDrawingSession())
                 {
                     ds.Clear(Colors.Transparent);
@@ -512,6 +514,6 @@ namespace ExampleGallery
 
                 ds.DrawText(text, x + 128, y + 256 - 16, Colors.White, textFormat);
             }
-        }        
+        }
     }
 }

@@ -3,7 +3,9 @@
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
 using Microsoft.Graphics.Canvas.Text;
+
 using System.Linq;
+
 using Windows.Globalization;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -35,7 +37,7 @@ namespace ExampleGallery
 
         public event SelectionChangedEventHandler SelectionChanged
         {
-            add { comboBox.SelectionChanged += value;}
+            add { comboBox.SelectionChanged += value; }
             remove { comboBox.SelectionChanged -= value; }
         }
 

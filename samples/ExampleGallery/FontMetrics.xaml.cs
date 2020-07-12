@@ -6,9 +6,11 @@ using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Text;
@@ -60,7 +62,7 @@ namespace ExampleGallery
                 defaultFontSizeSet = true;
             }
 
-            if (textLayout != null) 
+            if (textLayout != null)
                 textLayout.Dispose();
             textLayout = CreateTextLayout(resourceCreator, canvasWidth, canvasHeight);
 
@@ -100,17 +102,17 @@ namespace ExampleGallery
 
             public void DrawGlyphRun(
                 Vector2 position,
-                CanvasFontFace fontFace, 
-                float fontSize, 
-                CanvasGlyph[] glyphs, 
+                CanvasFontFace fontFace,
+                float fontSize,
+                CanvasGlyph[] glyphs,
                 bool isSideways,
                 uint bidiLevel,
                 object brush,
-                CanvasTextMeasuringMode measuringMode, 
-                string locale, 
-                string textString, 
-                int[] custerMapIndices, 
-                uint textPosition, 
+                CanvasTextMeasuringMode measuringMode,
+                string locale,
+                string textString,
+                int[] custerMapIndices,
+                uint textPosition,
                 CanvasGlyphOrientation glyphOrientation)
             {
                 Metrics m = new Metrics();
@@ -132,22 +134,22 @@ namespace ExampleGallery
 
             public void DrawStrikethrough(
                 Vector2 position,
-                float strikethroughWidth, 
-                float strikethroughThickness, 
+                float strikethroughWidth,
+                float strikethroughThickness,
                 float strikethroughOffset,
                 CanvasTextDirection textDirection,
                 object brush,
                 CanvasTextMeasuringMode measuringMode,
-                string locale, 
+                string locale,
                 CanvasGlyphOrientation glyphOrientation)
             {
             }
 
             public void DrawUnderline(
                 Vector2 position,
-                float underlineWidth, 
-                float underlineThickness, 
-                float underlineOffset, 
+                float underlineWidth,
+                float underlineThickness,
+                float underlineOffset,
                 float runHeight,
                 CanvasTextDirection textDirection,
                 object brush,
@@ -155,7 +157,7 @@ namespace ExampleGallery
                 string locale,
                 CanvasGlyphOrientation glyphOrientation)
             {
-            }            
+            }
 
             public void DrawInlineObject(
                 Vector2 baselineOrigin,

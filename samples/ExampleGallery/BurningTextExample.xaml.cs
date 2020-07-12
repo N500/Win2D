@@ -7,8 +7,10 @@ using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -154,11 +156,26 @@ namespace ExampleGallery
                 },
                 ColorMatrix = new Matrix5x4
                 {
-                    M11 = 0f, M12 = 0f, M13 = 0f, M14 = 0f,
-                    M21 = 0f, M22 = 0f, M23 = 0f, M24 = 0f,
-                    M31 = 0f, M32 = 0f, M33 = 0f, M34 = 0f,
-                    M41 = 0f, M42 = 1f, M43 = 0f, M44 = 1f,
-                    M51 = 1f, M52 = -0.5f, M53 = 0f, M54 = 0f
+                    M11 = 0f,
+                    M12 = 0f,
+                    M13 = 0f,
+                    M14 = 0f,
+                    M21 = 0f,
+                    M22 = 0f,
+                    M23 = 0f,
+                    M24 = 0f,
+                    M31 = 0f,
+                    M32 = 0f,
+                    M33 = 0f,
+                    M34 = 0f,
+                    M41 = 0f,
+                    M42 = 1f,
+                    M43 = 0f,
+                    M44 = 1f,
+                    M51 = 1f,
+                    M52 = -0.5f,
+                    M53 = 0f,
+                    M54 = 0f
                 }
             };
 

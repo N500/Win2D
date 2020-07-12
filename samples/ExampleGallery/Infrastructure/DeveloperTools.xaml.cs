@@ -3,11 +3,13 @@
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
 using Microsoft.Graphics.Canvas;
+
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Popups;
@@ -19,7 +21,7 @@ namespace ExampleGallery
     public sealed partial class DeveloperTools : UserControl
     {
         static DispatcherTimer timer;
-        static List<KeyValuePair<string, WeakReference<UserControl>>> exampleControls = new List<KeyValuePair<string,WeakReference<UserControl>>>();
+        static List<KeyValuePair<string, WeakReference<UserControl>>> exampleControls = new List<KeyValuePair<string, WeakReference<UserControl>>>();
         static WeakReference<DeveloperTools> activePage;
 
         public DeveloperTools()
@@ -122,7 +124,7 @@ namespace ExampleGallery
 
             timer.Start();
         }
-        
+
         void gcButton_Unchecked(object sender, RoutedEventArgs e)
         {
             timer.Stop();
@@ -187,7 +189,7 @@ namespace ExampleGallery
             {
                 if (example.Control == this.GetType())
                     continue;
-                
+
                 leakCheckFrame.Navigate(typeof(ExamplePage), example);
                 await Task.Delay(1000);
                 GenerateLeakReport();

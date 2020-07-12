@@ -5,10 +5,12 @@
 using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Threading.Tasks;
+
 using Windows.Devices.Input;
 using Windows.Graphics.Display;
 using Windows.System;
@@ -55,9 +57,9 @@ namespace ExampleGallery
             {
                 Source = mandelbrotEffect,
 
-                RedTable   = new float[] { 0, 0, 0, 0, 1, 1, 0.67f, 0, 0    },
-                GreenTable = new float[] { 0, 0, 1, 1, 1, 0, 0,     0, 0.5f },
-                BlueTable  = new float[] { 0, 1, 1, 0, 0, 0, 1,     1, 1    },
+                RedTable = new float[] { 0, 0, 0, 0, 1, 1, 0.67f, 0, 0 },
+                GreenTable = new float[] { 0, 0, 1, 1, 1, 0, 0, 0, 0.5f },
+                BlueTable = new float[] { 0, 1, 1, 0, 0, 0, 1, 1, 1 },
             };
         }
 

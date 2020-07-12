@@ -6,9 +6,11 @@ using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -30,7 +32,7 @@ namespace ExampleGallery
         public bool ShowNonOutlineText { get; set; }
 
         bool needsResourceRecreation;
-        
+
         public List<CanvasTextDirection> TextDirectionOptions { get { return Utils.GetEnumAsList<CanvasTextDirection>(); } }
         public CanvasTextDirection CurrentTextDirection { get; set; }
 
@@ -41,9 +43,9 @@ namespace ExampleGallery
         public List<TextLengthOption> TextLengthOptions { get { return Utils.GetEnumAsList<TextLengthOption>(); } }
         public TextLengthOption CurrentTextLengthOption { get; set; }
 
-        public enum TextEffectOption { None, UnderlineEveryOtherWord, StrikeEveryOtherWord};
+        public enum TextEffectOption { None, UnderlineEveryOtherWord, StrikeEveryOtherWord };
         public List<TextEffectOption> TextEffectOptions { get { return Utils.GetEnumAsList<TextEffectOption>(); } }
-        public TextEffectOption CurrentTextEffectOption { get; set;  }
+        public TextEffectOption CurrentTextEffectOption { get; set; }
 
         //
         // Apps using text-to-geometry will typically use the 'Layout' option. 
@@ -249,11 +251,11 @@ namespace ExampleGallery
 
             everyOtherWordBoundary = Utils.GetEveryOtherWord(testString);
 
-            float sizeDim = Math.Min(canvasWidth, canvasHeight);         
+            float sizeDim = Math.Min(canvasWidth, canvasHeight);
 
             CanvasTextFormat textFormat = new CanvasTextFormat()
             {
-                FontSize = CurrentTextLengthOption == TextLengthOption.Paragraph? sizeDim * 0.09f : sizeDim * 0.3f,
+                FontSize = CurrentTextLengthOption == TextLengthOption.Paragraph ? sizeDim * 0.09f : sizeDim * 0.3f,
                 Direction = CurrentTextDirection,
             };
 

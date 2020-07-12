@@ -6,10 +6,12 @@ using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Brushes;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Text;
@@ -58,7 +60,7 @@ namespace ExampleGallery
         }
         public List<TextSampleOption> TextSampleOptions { get { return Utils.GetEnumAsList<TextSampleOption>(); } }
         public TextSampleOption CurrentTextSampleOption { get; set; }
-        
+
         //
         // When implementing an actual subscript/superscript typography option,
         // a font author will fine-tune the placement of baselines based on how the font
@@ -69,7 +71,7 @@ namespace ExampleGallery
         const float fontSizeShrinkAmount = 0.65f;
         const float subscriptBaselineScale = 0.2f;
         const float superscriptBaselineScale = 0.7f;
-    
+
         bool needsResourceRecreation;
         Size resourceRealizationSize;
         float sizeDim;
@@ -91,7 +93,7 @@ namespace ExampleGallery
             float canvasWidth = (float)targetSize.Width;
             float canvasHeight = (float)targetSize.Height;
             sizeDim = Math.Min(canvasWidth, canvasHeight);
-            
+
             textBrush = new CanvasSolidColorBrush(resourceCreator, Colors.Thistle);
 
             if (!defaultFontSizeSet)
@@ -109,7 +111,7 @@ namespace ExampleGallery
                 fontSizeSlider.Value = CurrentFontSize;
                 defaultFontSizeSet = true;
             }
-            
+
             string sampleText = null;
             switch (CurrentTextSampleOption)
             {
@@ -161,7 +163,7 @@ namespace ExampleGallery
                     Debug.Assert(false, "Unexpected text sample option");
                     break;
             }
-            
+
             subscriptSuperscriptRenderer = new SubscriptSuperscriptRenderer();
 
             needsResourceRecreation = false;
@@ -194,15 +196,15 @@ namespace ExampleGallery
         }
 
         private void ShrinkFontAndAttachCustomBrushData(
-            CanvasTextLayout textLayout, 
-            int textPosition, 
-            int characterCount, 
+            CanvasTextLayout textLayout,
+            int textPosition,
+            int characterCount,
             CustomBrushData.BaselineAdjustmentType baselineAdjustmentType)
         {
             textLayout.SetFontSize(textPosition, characterCount, (float)CurrentFontSize * fontSizeShrinkAmount);
             textLayout.SetCustomBrush(textPosition, characterCount, new CustomBrushData() { BaselineAdjustment = baselineAdjustmentType });
         }
-       
+
         private void SetSubscript(CanvasTextLayout textLayout, int textPosition, int characterCount)
         {
             ShrinkFontAndAttachCustomBrushData(textLayout, textPosition, characterCount, CustomBrushData.BaselineAdjustmentType.Lower);
@@ -212,7 +214,7 @@ namespace ExampleGallery
         {
             ShrinkFontAndAttachCustomBrushData(textLayout, textPosition, characterCount, CustomBrushData.BaselineAdjustmentType.Raise);
         }
-  
+
         SubscriptSuperscriptRenderer subscriptSuperscriptRenderer = null;
 
         // 
@@ -227,7 +229,7 @@ namespace ExampleGallery
         {
             public CanvasDrawingSession DrawingSession;
             public CanvasSolidColorBrush TextBrush;
-            
+
             public void DrawGlyphRun(
                 Vector2 position,
                 CanvasFontFace fontFace,
@@ -344,14 +346,14 @@ namespace ExampleGallery
                 FontWeight = UseBoldFace ? FontWeights.Bold : FontWeights.Normal,
                 FontStyle = UseItalicFace ? FontStyle.Italic : FontStyle.Normal
             };
-            
+
             return new CanvasTextLayout(resourceCreator, sampleText, textFormat, canvasWidth, canvasHeight);
         }
 
         private void Canvas_Draw(CanvasControl sender, CanvasDrawEventArgs args)
         {
             EnsureResources(sender, sender.Size);
-            
+
             if (ShowUnformatted)
             {
                 args.DrawingSession.DrawTextLayout(textLayout, 0, 0, Colors.DarkGray);

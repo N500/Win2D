@@ -8,10 +8,12 @@ using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Threading.Tasks;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -124,7 +126,7 @@ namespace ExampleGallery
             float canvasWidth = (float)targetSize.Width;
             float canvasHeight = (float)targetSize.Height;
 
-            if (textLayout != null) 
+            if (textLayout != null)
                 textLayout.Dispose();
             textLayout = CreateTextLayout(resourceCreator, canvasWidth, canvasHeight);
 
@@ -205,7 +207,7 @@ namespace ExampleGallery
 
         void EnsureInlineObjects()
         {
-            if (!inlineObjectsEnabledChanged) 
+            if (!inlineObjectsEnabledChanged)
                 return;
 
             //
@@ -229,7 +231,7 @@ namespace ExampleGallery
 
         void EnsureTextDirection()
         {
-            if (!textDirectionChanged) 
+            if (!textDirectionChanged)
                 return;
 
             textLayout.Direction = CurrentTextDirection;

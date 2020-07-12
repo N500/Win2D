@@ -6,6 +6,7 @@ using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,6 +16,7 @@ using System.Numerics;
 using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+
 using Windows.Foundation;
 using Windows.Graphics.DirectX;
 using Windows.Storage;
@@ -124,7 +126,7 @@ namespace ExampleGallery
                 this.uiThreadDispatcher = uiThreadDispatcher;
             }
 
-            
+
             public async Task GenerateThumbnail(Panel panel)
             {
                 // Instantiate the example.
@@ -331,7 +333,7 @@ namespace ExampleGallery
                 }
             }
 
-            
+
             static CanvasBitmap MakeThumbnailPretty(CanvasBitmap capturedBitmap, float thumbnailWidth, float thumbnailHeight, Rect targetRect)
             {
                 var pixelColors = capturedBitmap.GetPixelColors();

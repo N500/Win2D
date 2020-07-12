@@ -2,13 +2,12 @@
 //
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
-using System;
 using System.Collections.Generic;
-using System.Text;
+
+using Windows.UI;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml;
-using Windows.UI;
 
 namespace ExampleGallery
 {
@@ -45,7 +44,7 @@ namespace ExampleGallery
                 Colors.Navy
             };
 
-            for (int i=0; i<8; ++i)
+            for (int i = 0; i < 8; ++i)
             {
                 int row = i / 2;
                 int column = i % 2;

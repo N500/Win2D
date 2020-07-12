@@ -4,10 +4,12 @@
 
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -129,7 +131,7 @@ namespace ExampleGallery
 
                 ds.DrawRoundedRectangle(
                     x, y,
-                    xx-x, yy-y,
+                    xx - x, yy - y,
                     radius, radius,
                     color,
                     2.0f);

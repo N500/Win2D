@@ -3,9 +3,11 @@
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
 using ExampleGallery.Effects;
+
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
 using Windows.Media.Capture;
@@ -31,7 +33,7 @@ namespace ExampleGallery
         const string displacementEffect = "Displacement effect";
         const string rotatingTilesEffect = "Rotating tiles effect";
         const string gaussianBlurEffect = "Gaussian Blur effect";
-        
+
         public List<string> PossibleEffects
         {
             get

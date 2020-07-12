@@ -3,9 +3,11 @@
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
 using Microsoft.Graphics.Canvas;
+
 using System;
 using System.Numerics;
 using System.Threading.Tasks;
+
 using Windows.Foundation;
 
 namespace ExampleGallery

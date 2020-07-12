@@ -3,10 +3,7 @@
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
 using Microsoft.Graphics.Canvas;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
-using System.Reflection;
-using Windows.Foundation;
+
 using Windows.UI;
 using Windows.UI.Input.Inking;
 

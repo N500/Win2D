@@ -5,9 +5,11 @@
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.System;
 using Windows.UI;

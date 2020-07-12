@@ -3,6 +3,7 @@
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
 using Microsoft.Graphics.Canvas;
+
 using System;
 using System.Numerics;
 
@@ -52,7 +53,7 @@ namespace ExampleGallery
 
             // From the unit circle, cosine is the x coordinate and sine is the y coordinate.
             // We're negating y because on the screen increasing y moves down the display.
-            return new Vector2( (float)Math.Cos(angle),
+            return new Vector2((float)Math.Cos(angle),
                                -(float)Math.Sin(angle));
         }
 

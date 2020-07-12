@@ -7,9 +7,11 @@ using Microsoft.Graphics.Canvas.Brushes;
 using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -43,16 +45,16 @@ namespace ExampleGallery
         public bool ShowNonCustomText { get; set; }
 
         bool needsResourceRecreation;
-        
+
         public List<CanvasTextDirection> TextDirectionOptions { get { return Utils.GetEnumAsList<CanvasTextDirection>(); } }
         public CanvasTextDirection CurrentTextDirection { get; set; }
 
         public List<CanvasVerticalGlyphOrientation> VerticalGlyphOrientationOptions { get { return Utils.GetEnumAsList<CanvasVerticalGlyphOrientation>(); } }
         public CanvasVerticalGlyphOrientation CurrentVerticalGlyphOrientation { get; set; }
 
-        public enum TextEffectOption { None, UnderlineEveryOtherWord, StrikeEveryOtherWord};
+        public enum TextEffectOption { None, UnderlineEveryOtherWord, StrikeEveryOtherWord };
         public List<TextEffectOption> TextEffectOptions { get { return Utils.GetEnumAsList<TextEffectOption>(); } }
-        public TextEffectOption CurrentTextEffectOption { get; set;  }
+        public TextEffectOption CurrentTextEffectOption { get; set; }
 
         public GlyphRotation()
         {
@@ -227,11 +229,11 @@ namespace ExampleGallery
 
         private CanvasTextLayout CreateTextLayout(ICanvasResourceCreator resourceCreator, float canvasWidth, float canvasHeight)
         {
-            float sizeDim = Math.Min(canvasWidth, canvasHeight);         
+            float sizeDim = Math.Min(canvasWidth, canvasHeight);
 
             CanvasTextFormat textFormat = new CanvasTextFormat()
             {
-                FontSize = ThumbnailGenerator.IsDrawingThumbnail? sizeDim * 0.25f : sizeDim * 0.085f,
+                FontSize = ThumbnailGenerator.IsDrawingThumbnail ? sizeDim * 0.25f : sizeDim * 0.085f,
                 Direction = CurrentTextDirection,
             };
 

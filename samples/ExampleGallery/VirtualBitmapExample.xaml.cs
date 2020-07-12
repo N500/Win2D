@@ -7,6 +7,7 @@ using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
+
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.Storage;
@@ -94,7 +96,7 @@ namespace ExampleGallery
             }
         }
 
-        
+
         private async void OnOpenClicked(object sender, RoutedEventArgs e)
         {
             await Open(CanvasVirtualBitmapOptions.None);
@@ -187,7 +189,7 @@ namespace ExampleGallery
             if (PropertyChanged == null)
                 return;
 
-            foreach (var property in new string[] { "LoadedImageInfo", "IsImageLoaded"})
+            foreach (var property in new string[] { "LoadedImageInfo", "IsImageLoaded" })
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
             }

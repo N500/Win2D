@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -105,7 +106,7 @@ namespace ExampleGallery
             };
         }
 
-#region Navigation support
+        #region Navigation support
 
         RelayCommand _goBackCommand;
         RelayCommand _goForwardCommand;
@@ -282,9 +283,9 @@ namespace ExampleGallery
             }
         }
 
-#endregion
+        #endregion
 
-#region Process lifetime management
+        #region Process lifetime management
 
         private String _pageKey;
 
@@ -364,7 +365,7 @@ namespace ExampleGallery
             frameState[_pageKey] = pageState;
         }
 
-#endregion
+        #endregion
     }
 
     /// <summary>

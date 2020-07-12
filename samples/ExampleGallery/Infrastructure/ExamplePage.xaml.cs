@@ -3,6 +3,7 @@
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
 using System;
+
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -15,7 +16,7 @@ namespace ExampleGallery
 
         public ExamplePage()
         {
-            this.InitializeComponent();         
+            this.InitializeComponent();
 
             this.navigationHelper = new NavigationHelper(this);
 
@@ -36,7 +37,7 @@ namespace ExampleGallery
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
-        {            
+        {
             this.navigationHelper.OnNavigatedTo(e);
 
             var example = e.Parameter as ExampleDefinition;
@@ -48,7 +49,7 @@ namespace ExampleGallery
                     var control = Activator.CreateInstance(example.Control);
                     this.exampleContent.Children.Add((UIElement)control);
                     DeveloperTools.ExampleControlCreated(example.Name, (UserControl)control);
-                }                
+                }
             }
         }
 

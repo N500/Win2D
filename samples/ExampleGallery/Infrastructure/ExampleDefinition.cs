@@ -61,7 +61,7 @@ namespace ExampleGallery
             new ExampleDefinition("Ink", typeof(InkExample)),
             new ExampleDefinition("Shapes", typeof(ShapesExample)),
             new ExampleDefinition("Stroke Styles", typeof(StrokeStyles)),
-            new ExampleDefinition("Arc Options", typeof(ArcOptions)),          
+            new ExampleDefinition("Arc Options", typeof(ArcOptions)),
             new ExampleDefinition("SVG", typeof(SvgExample)),
             new ExampleDefinition("Gradient Mesh", typeof(GradientMeshExample)),
             new ExampleDefinition("Histogram", typeof(HistogramExample)),

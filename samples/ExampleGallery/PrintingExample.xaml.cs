@@ -5,10 +5,12 @@
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Printing;
 using Microsoft.Graphics.Canvas.Text;
+
 using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Threading.Tasks;
+
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.Graphics.Printing;

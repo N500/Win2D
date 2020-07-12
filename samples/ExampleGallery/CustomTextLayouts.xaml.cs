@@ -7,9 +7,11 @@ using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -100,7 +102,7 @@ namespace ExampleGallery
             Rect lineRegion;
 
             List<Rect> unsortedOutput;
-            
+
             float[] figureTopEdge;
             float[] figureBottomEdge;
 
@@ -379,7 +381,7 @@ namespace ExampleGallery
             public CanvasAnalyzedBidi Bidi { get { return bidiRuns[bidiRunIndex].Value; } }
 
             public CanvasCharacterRange Range { get { return characterRange; } }
-            
+
 
             int GetBoundary(CanvasCharacterRange range)
             {
@@ -390,7 +392,7 @@ namespace ExampleGallery
             {
                 return Math.Min(Math.Min(a, b), c);
             }
-            
+
         }
 
         List<FormattingSpan> EvaluateFormattingSpans(
@@ -417,11 +419,11 @@ namespace ExampleGallery
                 float fontSize = desiredFontSize * formattingSpanHelper.ScaledFont.ScaleFactor;
 
                 FormattingSpan formattingSpan = new FormattingSpan();
-                
+
                 int[] clusterMap;
                 bool[] isShapedAlone;
                 CanvasGlyphShaping[] glyphShaping;
-                
+
                 // Evaluate which glyphs comprise the text.
                 formattingSpan.Glyphs = textAnalyzer.GetGlyphs(
                     formattingSpanHelper.Range,
@@ -467,7 +469,7 @@ namespace ExampleGallery
 
             private int firstGlyphIndex; // Indices within the formatting span.
             private int lastGlyphIndex;
-            
+
             public CanvasCharacterRange GetRange()
             {
                 int formattingSpanStartIndex = FormattingSpan.Range.CharacterIndex;
@@ -475,9 +477,11 @@ namespace ExampleGallery
                 int end = GetCharacterIndex(lastGlyphIndex, FormattingSpan.ClusterMap);
                 int length = end - start + 1;
 
-                return new CanvasCharacterRange {
+                return new CanvasCharacterRange
+                {
                     CharacterIndex = formattingSpanStartIndex + start,
-                    CharacterCount = length };
+                    CharacterCount = length
+                };
             }
 
             public void AddGlyph(int glyphIndex)
@@ -504,8 +508,8 @@ namespace ExampleGallery
 
                 int firstClusterMapValue = FormattingSpan.ClusterMap[range.CharacterIndex - formattingSpanStartIndex];
 
-                for (int i=0; i < range.CharacterCount; ++i)
-                {                    
+                for (int i = 0; i < range.CharacterCount; ++i)
+                {
                     int indexWithinFormattingSpan = range.CharacterIndex - formattingSpanStartIndex + i; // Cluster maps are per formatting span.
 
                     clusterMap[i] = FormattingSpan.ClusterMap[indexWithinFormattingSpan] - firstClusterMapValue;
@@ -519,7 +523,7 @@ namespace ExampleGallery
                 // The shaping array is in terms of glyph indices. The formatting span contains all the shaping info for this glyph run.
                 //
                 CanvasGlyphShaping[] shaping = new CanvasGlyphShaping[Glyphs.Count];
-                                
+
                 for (int i = 0; i < Glyphs.Count; ++i)
                 {
                     shaping[i] = FormattingSpan.GlyphShaping[firstGlyphIndex + i];
@@ -601,7 +605,7 @@ namespace ExampleGallery
                 uint currentLevel = glyphRuns[spanStart].FormattingSpan.BidiLevel;
 
                 // Rearrange each run to produced reordered spans.
-                for (int i=0; i< spanCount; ++i)
+                for (int i = 0; i < spanCount; ++i)
                 {
                     int runEnd = i + 1;
                     uint nextLevel = (runEnd < spanCount) ? glyphRuns[spanIndices[runEnd]].FormattingSpan.BidiLevel : 0;
@@ -620,7 +624,7 @@ namespace ExampleGallery
                     {
                         // Recede to find start of the run and previous level.
                         uint previousLevel;
-                        for (;;)
+                        for (; ; )
                         {
                             if (runStart <= 0)
                             {
@@ -654,13 +658,13 @@ namespace ExampleGallery
             void ReverseArrayElements(int[] indices, int start, int end)
             {
                 int length = end - start;
-                for (int i=0; i<length / 2; i++)
+                for (int i = 0; i < length / 2; i++)
                 {
                     int temp = indices[start + i];
                     indices[start + i] = indices[end - i - 1];
                     indices[end - i - 1] = temp;
                 }
-            }   
+            }
         }
 
         // This method returns the current glyph run.
@@ -669,7 +673,7 @@ namespace ExampleGallery
             GlyphRun glyphRun = new GlyphRun();
 
             glyphRun.FormattingSpan = formattingSpan;
-            
+
             glyphRun.Glyphs = new List<CanvasGlyph>();
             currentLayoutBox.AddGlyphRun(glyphRun);
 
@@ -715,7 +719,7 @@ namespace ExampleGallery
 
             int rectangleIndex = -1;
             float glyphRunAdvance = 0;
-            int wordsPerLine = 0;            
+            int wordsPerLine = 0;
 
             for (int formattingSpanIndex = 0; formattingSpanIndex < formattingSpans.Count; formattingSpanIndex++)
             {
@@ -745,7 +749,7 @@ namespace ExampleGallery
 
                         var afterThisCharacter = analyzedBreakpoints[correspondingTextPosition].BreakAfter;
                         var beforeNextCharacter = (correspondingTextPosition < analyzedBreakpoints.Length - 1) ? analyzedBreakpoints[correspondingTextPosition + 1].BreakBefore : CanvasLineBreakCondition.Neutral;
-                        
+
                         // 
                         // The text for this demo doesn't have any hard line breaks.
                         //
@@ -811,7 +815,7 @@ namespace ExampleGallery
 
             int glyphIndex = 0;
 
-            for (int i=0; i<layoutBox.GlyphRuns.Count; i++)
+            for (int i = 0; i < layoutBox.GlyphRuns.Count; i++)
             {
                 if (layoutBox.GlyphRuns[i].Glyphs.Count == 0)
                     continue;
@@ -845,11 +849,11 @@ namespace ExampleGallery
             int glyphIndex = 0;
 
             float xPosition = (float)layoutBox.Rectangle.Right;
-            for (int i=0; i<layoutBox.GlyphRuns.Count; i++)
+            for (int i = 0; i < layoutBox.GlyphRuns.Count; i++)
             {
                 if (layoutBox.GlyphRuns[i].Glyphs.Count == 0)
                     continue;
-                
+
                 int originalGlyphCountForThisRun = layoutBox.GlyphRuns[i].Glyphs.Count;
 
                 if (needsAdditionalJustificationCharacters)
@@ -865,7 +869,7 @@ namespace ExampleGallery
 
                     var glyphRunClusterMap = layoutBox.GlyphRuns[i].GetClusterMap(range);
                     var glyphRunShaping = layoutBox.GlyphRuns[i].GetShaping();
-                    
+
                     CanvasGlyph[] newSetOfGlyphs = textAnalyzer.AddGlyphsAfterJustification(
                         layoutBox.GlyphRuns[i].FormattingSpan.FontFace,
                         layoutBox.GlyphRuns[i].FormattingSpan.FontSize,
@@ -907,15 +911,15 @@ namespace ExampleGallery
         void Justify(CanvasTextAnalyzer textAnalyzer, List<LayoutBox> layoutBoxes)
         {
             if (layoutBoxes.Count == 0)
-                return;            
+                return;
 
-            for (int i=0; i<layoutBoxes.Count; i++)
+            for (int i = 0; i < layoutBoxes.Count; i++)
             {
                 if (layoutBoxes[i].GlyphRuns.Count == 0)
                     return;
 
                 JustifyLine(textAnalyzer, layoutBoxes[i]);
-            }            
+            }
         }
 
         private void EnsureLayout(CanvasControl sender)
@@ -983,7 +987,7 @@ namespace ExampleGallery
 
             float maxLineSpacing = 0;
             List<FormattingSpan> formattingSpans = EvaluateFormattingSpans(textAnalyzer, fontResult, scriptAnalysis, bidiAnalysis, out maxLineSpacing);
-            
+
             //
             // Perform line break analysis.
             //
@@ -993,7 +997,7 @@ namespace ExampleGallery
             // Get the rectangles to layout text into.
             //
             layoutRectangles = SplitGeometryIntoRectangles(geometry, maxLineSpacing, sender);
-            
+
             //
             // Insert glyph runs into the layout boxes.
             //
@@ -1140,7 +1144,7 @@ namespace ExampleGallery
         {
             needsLayout = true;
             canvas.Invalidate();
-        }        
+        }
 
         private void InvalidateCanvas(object sender, RoutedEventArgs e)
         {

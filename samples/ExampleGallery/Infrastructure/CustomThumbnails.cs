@@ -4,7 +4,9 @@
 
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Text;
+
 using System;
+
 using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.Xaml;

@@ -2,13 +2,15 @@
 //
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
+using Microsoft.Graphics.Canvas;
+using Microsoft.Graphics.Canvas.Effects;
+
 using System.Collections.Generic;
+
 using Windows.Foundation.Collections;
 using Windows.Graphics.DirectX.Direct3D11;
 using Windows.Media.Effects;
 using Windows.Media.MediaProperties;
-using Microsoft.Graphics.Canvas;
-using Microsoft.Graphics.Canvas.Effects;
 
 namespace ExampleGallery.Effects
 {

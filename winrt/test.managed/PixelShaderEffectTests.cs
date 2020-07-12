@@ -4,15 +4,8 @@
 
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NativeComponent;
-using System;
-using System.Linq;
-using System.Runtime.InteropServices;
-using Windows.Foundation;
 
 #if WINDOWS_UWP
-using System.Numerics;
 using Windows.Graphics.Effects;
 #else
 using Microsoft.Graphics.Canvas.Numerics;
@@ -1008,9 +1001,12 @@ namespace test.managed
         {
             return new Matrix3x2()
             {
-                M11 = m11, M12 = m12,
-                M21 = m21, M22 = m22,
-                M31 = m31, M32 = m32,
+                M11 = m11,
+                M12 = m12,
+                M21 = m21,
+                M22 = m22,
+                M31 = m31,
+                M32 = m32,
             };
         }
 
@@ -1022,10 +1018,22 @@ namespace test.managed
         {
             return new Matrix4x4()
             {
-                M11 = m11, M12 = m12, M13 = m13, M14 = m14,
-                M21 = m21, M22 = m22, M23 = m23, M24 = m24,
-                M31 = m31, M32 = m32, M33 = m33, M34 = m34,
-                M41 = m41, M42 = m42, M43 = m43, M44 = m44,
+                M11 = m11,
+                M12 = m12,
+                M13 = m13,
+                M14 = m14,
+                M21 = m21,
+                M22 = m22,
+                M23 = m23,
+                M24 = m24,
+                M31 = m31,
+                M32 = m32,
+                M33 = m33,
+                M34 = m34,
+                M41 = m41,
+                M42 = m42,
+                M43 = m43,
+                M44 = m44,
             };
         }
 
@@ -1064,14 +1072,14 @@ namespace test.managed
             effect.Source8Interpolation = CanvasImageInterpolation.Linear;
 
             // Getters.
-            Assert.AreEqual(CanvasImageInterpolation.Anisotropic,     effect.Source1Interpolation);
-            Assert.AreEqual(CanvasImageInterpolation.Linear,          effect.Source2Interpolation);
+            Assert.AreEqual(CanvasImageInterpolation.Anisotropic, effect.Source1Interpolation);
+            Assert.AreEqual(CanvasImageInterpolation.Linear, effect.Source2Interpolation);
             Assert.AreEqual(CanvasImageInterpolation.NearestNeighbor, effect.Source3Interpolation);
-            Assert.AreEqual(CanvasImageInterpolation.Anisotropic,     effect.Source4Interpolation);
-            Assert.AreEqual(CanvasImageInterpolation.Linear,          effect.Source5Interpolation);
+            Assert.AreEqual(CanvasImageInterpolation.Anisotropic, effect.Source4Interpolation);
+            Assert.AreEqual(CanvasImageInterpolation.Linear, effect.Source5Interpolation);
             Assert.AreEqual(CanvasImageInterpolation.NearestNeighbor, effect.Source6Interpolation);
-            Assert.AreEqual(CanvasImageInterpolation.Anisotropic,     effect.Source7Interpolation);
-            Assert.AreEqual(CanvasImageInterpolation.Linear,          effect.Source8Interpolation);
+            Assert.AreEqual(CanvasImageInterpolation.Anisotropic, effect.Source7Interpolation);
+            Assert.AreEqual(CanvasImageInterpolation.Linear, effect.Source8Interpolation);
 
             // Illegal values.
             Assert.ThrowsException<ArgumentException>(() => effect.Source1Interpolation = CanvasImageInterpolation.Cubic);
@@ -1121,13 +1129,13 @@ namespace test.managed
 
             // Getters.
             Assert.AreEqual(SamplerCoordinateMapping.OneToOne, effect.Source1Mapping);
-            Assert.AreEqual(SamplerCoordinateMapping.Offset,   effect.Source2Mapping);
+            Assert.AreEqual(SamplerCoordinateMapping.Offset, effect.Source2Mapping);
             Assert.AreEqual(SamplerCoordinateMapping.OneToOne, effect.Source3Mapping);
-            Assert.AreEqual(SamplerCoordinateMapping.Offset,   effect.Source4Mapping);
+            Assert.AreEqual(SamplerCoordinateMapping.Offset, effect.Source4Mapping);
             Assert.AreEqual(SamplerCoordinateMapping.OneToOne, effect.Source5Mapping);
-            Assert.AreEqual(SamplerCoordinateMapping.Offset,   effect.Source6Mapping);
+            Assert.AreEqual(SamplerCoordinateMapping.Offset, effect.Source6Mapping);
             Assert.AreEqual(SamplerCoordinateMapping.OneToOne, effect.Source7Mapping);
-            Assert.AreEqual(SamplerCoordinateMapping.Offset,   effect.Source8Mapping);
+            Assert.AreEqual(SamplerCoordinateMapping.Offset, effect.Source8Mapping);
 
             Assert.AreEqual(23, effect.MaxSamplerOffset);
         }
@@ -1274,7 +1282,7 @@ namespace test.managed
             effect.Source1Mapping = SamplerCoordinateMapping.Offset;
             effect.MaxSamplerOffset = 0;
 
-            Utils.AssertThrowsException<ArgumentException>(() => 
+            Utils.AssertThrowsException<ArgumentException>(() =>
             {
                 using (var ds = renderTarget.CreateDrawingSession())
                 {
@@ -1286,7 +1294,7 @@ namespace test.managed
             effect.Source1Mapping = SamplerCoordinateMapping.OneToOne;
             effect.MaxSamplerOffset = 1;
 
-            Utils.AssertThrowsException<ArgumentException>(() => 
+            Utils.AssertThrowsException<ArgumentException>(() =>
             {
                 using (var ds = renderTarget.CreateDrawingSession())
                 {

@@ -3,10 +3,12 @@
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
 using Microsoft.Graphics.Canvas;
+
 using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Threading.Tasks;
+
 using Windows.Foundation;
 
 namespace ExampleGallery
@@ -45,7 +47,7 @@ namespace ExampleGallery
         // number between minNumParticles and maxNumParticles.
         protected int minNumParticles;
         protected int maxNumParticles;
-       
+
         // This controls the bitmap that the particle system uses.
         protected string bitmapFilename;
 
@@ -86,7 +88,7 @@ namespace ExampleGallery
         protected CanvasBlend blendState;
 
         #endregion
-        
+
 
         // Constructs a new ParticleSystem.
         protected ParticleSystem()
@@ -207,7 +209,7 @@ namespace ExampleGallery
 
 
         void Draw(CanvasDrawingSession drawingSession, CanvasSpriteBatch spriteBatch)
-        { 
+        {
             // Go through the particles in reverse order, so new ones are drawn underneath
             // older ones. This improves visual appearance of effects like smoke plume
             // where many particles are created at the same position over a period of time.

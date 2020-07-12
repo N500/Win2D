@@ -6,10 +6,12 @@ using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Diagnostics;
 using System.Numerics;
 using System.Threading.Tasks;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -290,10 +292,10 @@ namespace ExampleGallery
             {
                 var mu = (1 - Math.Cos(rotateAndScaleCounter * 0.01)) * 0.5;
 
-                transform = transform * 
-                    Matrix3x2.CreateTranslation(-wizardPosition) * 
-                    Matrix3x2.CreateScale((float)(1.0f + mu * 0.75f)) * 
-                    Matrix3x2.CreateRotation((float)(mu * 0.1f)) * 
+                transform = transform *
+                    Matrix3x2.CreateTranslation(-wizardPosition) *
+                    Matrix3x2.CreateScale((float)(1.0f + mu * 0.75f)) *
+                    Matrix3x2.CreateRotation((float)(mu * 0.1f)) *
                     Matrix3x2.CreateTranslation(wizardPosition);
             }
 

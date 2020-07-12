@@ -8,10 +8,12 @@ using Microsoft.Graphics.Canvas.Svg;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.Storage;
 using Windows.UI;
@@ -145,7 +147,7 @@ namespace ExampleGallery
                     VerticalAlignment = CanvasVerticalAlignment.Center
                 });
         }
-        
+
         private void canvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args)
         {
             if (!svgSupported)
@@ -179,7 +181,7 @@ namespace ExampleGallery
 
                 args.DrawingSession.DrawImage(edgeDetection);
             }
-            
+
             if (pointerDrag != null)
             {
                 if (CurrentShapeType == ShapeType.Rectangle)
@@ -275,7 +277,7 @@ namespace ExampleGallery
                 return;
 
             using (var stream = await ApplicationData.Current.LocalFolder.OpenStreamForWriteAsync(
-                "SvgExample.svg", 
+                "SvgExample.svg",
                 CreationCollisionOption.ReplaceExisting))
             {
                 await svgDocument.SaveAsync(stream.AsRandomAccessStream());

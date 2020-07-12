@@ -55,12 +55,4 @@ namespace CoreWindowExample
             CoreApplication.Run(new ViewSource());
         }
     }
-
-    class ViewSource : IFrameworkViewSource
-    {
-        public IFrameworkView CreateView()
-        {
-            return new App();
-        }
-    }
 }

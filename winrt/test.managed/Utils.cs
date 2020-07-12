@@ -2,9 +2,6 @@
 //
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-
 namespace test.managed
 {
     static class Utils

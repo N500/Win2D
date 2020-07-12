@@ -8,8 +8,10 @@ using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Numerics;
+
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Input;
@@ -69,7 +71,7 @@ namespace ExampleGallery
 
             gestureRecognizer = new GestureRecognizer();
             gestureRecognizer.GestureSettings = GestureSettings.ManipulationTranslateInertia | GestureSettings.ManipulationTranslateY;
-                
+
             gestureRecognizer.ManipulationStarted += gestureRecognizer_ManipulationStarted;
             gestureRecognizer.ManipulationUpdated += gestureRecognizer_ManipulationUpdated;
             gestureRecognizer.ManipulationCompleted += gestureRecognizer_ManipulationCompleted;
@@ -138,7 +140,7 @@ namespace ExampleGallery
             args.Handled = true;
         }
 
-        private void Input_PointerMoved(object sender, PointerEventArgs args)      
+        private void Input_PointerMoved(object sender, PointerEventArgs args)
         {
             gestureRecognizer.ProcessMoveEvents(args.GetIntermediatePoints());
             args.Handled = true;
@@ -153,7 +155,7 @@ namespace ExampleGallery
         float offset = 0;
         float velocity = 0;
         const float targetSpeed = 2;
-        float targetVelocity = targetSpeed;        
+        float targetVelocity = targetSpeed;
         bool inManipulation;
 
         void gestureRecognizer_ManipulationStarted(GestureRecognizer sender, ManipulationStartedEventArgs args)
@@ -175,7 +177,7 @@ namespace ExampleGallery
 
         int firstLine;
         int lastLine;
-                
+
         private void OnUpdate(ICanvasAnimatedControl sender, CanvasAnimatedUpdateEventArgs args)
         {
             float height = (float)sender.Size.Height;
@@ -190,7 +192,7 @@ namespace ExampleGallery
             {
                 velocity = velocity * 0.90f + targetVelocity * 0.10f;
 
-                offset = offset + velocity;                
+                offset = offset + velocity;
             }
 
             offset = offset % totalHeight;
@@ -240,7 +242,7 @@ namespace ExampleGallery
                 BlurAmount = 10
             };
 
-            textOpacityBrush.StartPoint = blurOpacityBrush.StartPoint = new Vector2(0,0);
+            textOpacityBrush.StartPoint = blurOpacityBrush.StartPoint = new Vector2(0, 0);
             textOpacityBrush.EndPoint = blurOpacityBrush.EndPoint = new Vector2(0, (float)sender.Size.Height);
 
             var ds = args.DrawingSession;

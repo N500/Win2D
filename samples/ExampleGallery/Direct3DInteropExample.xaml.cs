@@ -2,14 +2,14 @@
 //
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
-using ExampleGallery.Direct3DInterop;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
-using System;
+
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -112,7 +112,7 @@ namespace ExampleGallery
             {
                 // If the bloom filter is turned on, draw the teapot into a rendertarget.
                 DemandCreateBloomRenderTarget(sender);
-                
+
                 using (var drawingSession = bloomRenderTarget.CreateDrawingSession())
                 {
                     drawingSession.Clear(Colors.Black);
@@ -231,18 +231,18 @@ namespace ExampleGallery
         void ApplyBloomFilter(CanvasDrawingSession drawingSession)
         {
             // Configure effects to use the latest threshold, blur, and intensity settings.
-            extractBrightAreas.RedSlope = 
-            extractBrightAreas.GreenSlope = 
+            extractBrightAreas.RedSlope =
+            extractBrightAreas.GreenSlope =
             extractBrightAreas.BlueSlope = 1 / (1 - BloomThreshold / 100);
 
-            extractBrightAreas.RedOffset = 
-            extractBrightAreas.GreenOffset = 
+            extractBrightAreas.RedOffset =
+            extractBrightAreas.GreenOffset =
             extractBrightAreas.BlueOffset = -BloomThreshold / 100 / (1 - BloomThreshold / 100);
 
             blurBrightAreas.BlurAmount = BloomBlur;
-            
-            adjustBloomIntensity.RedSlope = 
-            adjustBloomIntensity.GreenSlope = 
+
+            adjustBloomIntensity.RedSlope =
+            adjustBloomIntensity.GreenSlope =
             adjustBloomIntensity.BlueSlope = BloomIntensity / 100;
 
             // Apply the bloom effect.

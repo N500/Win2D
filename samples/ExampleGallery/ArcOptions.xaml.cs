@@ -5,9 +5,11 @@
 using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -134,7 +136,7 @@ namespace ExampleGallery
                         }
                     }
                     break;
-             
+
                 case AddArcOverload.PointToPoint:
                     // Display a warning if this is an invalid arc configuration.
                     bool isRadiusTooSmall = IsArcRadiusTooSmall();
@@ -229,7 +231,7 @@ namespace ExampleGallery
         void Overload_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             aroundEllipseControls.Visibility = (CurrentOverload == AddArcOverload.AroundEllipse) ? Visibility.Visible : Visibility.Collapsed;
-            pointToPointControls.Visibility  = (CurrentOverload == AddArcOverload.PointToPoint)  ? Visibility.Visible : Visibility.Collapsed;
+            pointToPointControls.Visibility = (CurrentOverload == AddArcOverload.PointToPoint) ? Visibility.Visible : Visibility.Collapsed;
 
             canvas.Invalidate();
         }

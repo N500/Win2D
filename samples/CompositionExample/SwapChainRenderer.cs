@@ -5,10 +5,12 @@
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Composition;
+
 using System;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
+
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Composition;
@@ -127,7 +129,7 @@ namespace CompositionExample
 
                 double mu = (-drawCount / 50.0f);
 
-                for (int i =0; i < 16; ++i)
+                for (int i = 0; i < 16; ++i)
                 {
                     double a = mu + (i / 16.0) * Math.PI * 2;
                     var x = (float)Math.Sin(a);

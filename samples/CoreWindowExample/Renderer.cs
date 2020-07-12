@@ -7,10 +7,12 @@ using Microsoft.Graphics.Canvas.Brushes;
 using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+
 using Windows.Foundation;
 using Windows.Graphics.Display;
 using Windows.UI;
@@ -49,7 +51,7 @@ namespace CoreWindowExample
 
             device = new CanvasDevice();
             swapChainManager = new SwapChainManager(window, device);
-            
+
             var effect = new GaussianBlurEffect()
             {
                 BlurAmount = 5,
@@ -199,7 +201,7 @@ namespace CoreWindowExample
             var center = new Vector2((float)(bounds.Left + bounds.Width * 0.5), (float)(bounds.Top + bounds.Height * 0.5));
 
             return CanvasGeometry.CreateCircle(device, center, (float)radius);
-            
+
         }
 
         CanvasGeometry MakeConvexGeometry()

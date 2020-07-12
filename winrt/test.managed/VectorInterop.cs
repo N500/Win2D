@@ -2,9 +2,6 @@
 //
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
-using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace test.managed
 {
     [TestClass]
@@ -93,7 +90,7 @@ namespace test.managed
 
             // Test Clear.
             v.Clear();
-            
+
             Assert.AreEqual(0, v.Count);
         }
 

@@ -3,13 +3,7 @@
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
 using Microsoft.Graphics.Canvas;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
-using Windows.Foundation;
+
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Streams;
@@ -429,7 +423,7 @@ namespace test.managed
                 });
                 return;
             }
-            
+
             var canvasBitmap = CanvasBitmap.CreateFromSoftwareBitmap(device, softwareBitmap);
 
             Assert.AreEqual(anyWidth, (int)canvasBitmap.SizeInPixels.Width);

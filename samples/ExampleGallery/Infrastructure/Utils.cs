@@ -4,12 +4,14 @@
 
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Geometry;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+
 using Windows.Storage;
 
 namespace ExampleGallery
@@ -38,7 +40,7 @@ namespace ExampleGallery
                 scale.Y = scale.X;
                 offset.Y = (outputSize.Y - sourceSize.Y * scale.Y) / 2;
             }
-            
+
             return Matrix3x2.CreateScale(scale) *
                    Matrix3x2.CreateTranslation(offset);
         }

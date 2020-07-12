@@ -3,6 +3,7 @@
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
 using Microsoft.Graphics.Canvas;
+
 using System;
 using System.Numerics;
 using System.Threading.Tasks;
@@ -74,7 +75,7 @@ namespace ExampleGallery
         protected override void InitializeParticle(Particle particle, Vector2 where)
         {
             base.InitializeParticle(particle, where);
-            
+
             // The base works fine except for acceleration. Explosions move outwards,
             // then slow down and stop because of air resistance. Let's change acceleration
             // so that when the particle is at max lifetime, the velocity will be zero.

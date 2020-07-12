@@ -4,11 +4,13 @@
 
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
+
 using System;
 using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
+
 using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Popups;
@@ -184,9 +186,9 @@ namespace ExampleGallery
                             TransformMatrix = transform
                         },
 
-                        RedTable   = new float[] { 1 },
+                        RedTable = new float[] { 1 },
                         GreenTable = new float[] { 1 },
-                        BlueTable  = new float[] { 1 },
+                        BlueTable = new float[] { 1 },
                         AlphaTable = new float[] { 0, 1 }
                     };
                 }
@@ -249,7 +251,7 @@ namespace ExampleGallery
             ds.DrawText("Hello, world!", 100, 100, Colors.Yellow);
         }
 
-        
+
         // Generate an icon for CompositionExample
         private static void DrawCompositionExampleIcon(CanvasDrawingSession ds, IconInfo iconInfo)
         {

@@ -121,6 +121,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ConvexHull.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Renderer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SwapChainManager.cs" />
+    <Compile Include="ViewSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="CoreWindowExample.uap.appxmanifest">
